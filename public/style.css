@@ -13,4 +13,14 @@ h2 {
   #chart div {
     height: calc(100% - 48px) !important; }
 
+#svg_test {
+  width: 100%;
+  height: 400px; }
+  #svg_test path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    stroke-linecap: round; }
+
 /*# sourceMappingURL=style.css.map */

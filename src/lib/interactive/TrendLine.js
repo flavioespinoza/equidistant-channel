@@ -78,8 +78,7 @@ class TrendLine extends Component {
 
       ___replace_order(selected)
 
-      const newTrends = trends
-        .map((each, idx) => idx === override.index
+      const newTrends = trends.map((each, idx) => idx === override.index
           ? {
             ...each,
             start: [override.x1Value, override.y1Value],

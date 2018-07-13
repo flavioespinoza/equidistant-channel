@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Chart from './Chart'
 import { getData } from './utils'
-import TypeChooser from './components/TypeChooser'
+import { TypeChooser } from 'react-stockcharts/lib/helper'
 import store from './Store'
 import { Provider } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -22,7 +22,7 @@ class ChartComponent extends React.Component {
 		}
 		return (
 			<TypeChooser>
-				{type => <Chart type={type} data={this.state.data} />}
+				{type => <Chart type={'svg'} data={this.state.data} />}
 			</TypeChooser>
 		)
 	}
