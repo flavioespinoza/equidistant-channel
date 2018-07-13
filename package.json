@@ -1,6 +1,6 @@
 {
-  "name": "react-stockcharts-example2",
-  "description": "Examples for react-stockcharts",
+  "name": "d3-freehand-drawing-tools",
+  "description": "Drawing Tools for react-stockcharts",
   "version": "0.0.24",
   "dependencies": {
     "copy-to-clipboard": "^3.0.8",

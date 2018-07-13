@@ -156,19 +156,13 @@ class CandleStickChartWithGannFan extends React.Component {
                yExtents={[d => [d.high, d.low]]}
                padding={{ top: 10, bottom: 20 }}>
 
-          <YAxis axisAt='right' orient='right' ticks={5} />
-          <XAxis axisAt='bottom' orient='bottom'/>
+          {/*<YAxis axisAt='right' orient='right' ticks={5} />*/}
+          {/*<XAxis axisAt='bottom' orient='bottom'/>*/}
 
-          <MouseCoordinateY at='right' orient='right' displayFormat={format('.2f')} />
+          {/*<MouseCoordinateY at='right' orient='right' displayFormat={format('.2f')} />*/}
 
 					<CandlestickSeries />
 
-          <EdgeIndicator itemType='last' 
-                         orient='right' 
-                         edgeAt='right'
-                         yAccessor={d => d.close} fill={d => d.close > d.open ? '#6BA583' : '#FF0000'}/>
-          
-          
 
 
           <GannFan ref={this.saveInteractiveNodes('GannFan', 1)}
@@ -179,7 +173,7 @@ class CandleStickChartWithGannFan extends React.Component {
            
         </Chart>
         
-        <CrossHairCursor />
+        {/*<CrossHairCursor />*/}
         
         <DrawingObjectSelector enabled={!this.state.enableInteractiveObject}
                                getInteractiveNodes={this.getInteractiveNodes}
