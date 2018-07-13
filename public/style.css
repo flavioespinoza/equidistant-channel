@@ -1,0 +1,16 @@
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  padding: 24px; }
+
+h2 {
+  padding: 12px; }
+
+#chart {
+  height: calc(100% - 200px) !important; }
+  #chart div {
+    height: calc(100% - 48px) !important; }
+
+/*# sourceMappingURL=style.css.map */
