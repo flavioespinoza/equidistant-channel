@@ -1,0 +1,21 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    padding: 24px;
+}
+
+h2 {
+    padding: 12px;
+}
+
+#chart {
+    height: calc(100% - 200px) !important;
+    //background-color: pink;
+    div {
+        height: calc(100% - 48px) !important;
+    }
+}
+
+

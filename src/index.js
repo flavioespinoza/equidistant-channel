@@ -1,11 +1,14 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Chart from './Chart'
+import { getData } from './utils'
+import { TypeChooser } from 'react-stockcharts/lib/helper'
+import store from './Store'
+import { Provider } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
-import React from 'react';
-import { render } from 'react-dom';
-import Chart from './Chart';
-import { getData } from "./utils"
-
-import { TypeChooser } from "react-stockcharts/lib/helper";
-
+const log = require('ololog').configure({locate: false})
 
 class ChartComponent extends React.Component {
 	componentDidMount() {
@@ -13,7 +16,7 @@ class ChartComponent extends React.Component {
 			this.setState({ data })
 		})
 	}
-	render() {
+  render() {
 		if (this.state == null) {
 			return <div>Loading...</div>
 		}
@@ -25,7 +28,14 @@ class ChartComponent extends React.Component {
 	}
 }
 
-render(
-	<ChartComponent />,
-	document.getElementById("root")
-);
+setTimeout(function () {
+  ReactDOM.render(
+    <Provider store={store}><ChartComponent/></Provider>,
+    document.getElementById('chart')
+  )
+}, 2000)
+
+
+export function ___replace_order () {
+  
+}
