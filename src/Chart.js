@@ -88,7 +88,7 @@ const macdAppearance = {
   }
 }
 
-class CandleStickChartWithEquidistantChannel extends React.Component {
+class CandleStickChart extends React.Component {
   constructor (props) {
     super(props)
     this.onKeyPress = this.onKeyPress.bind(this)
@@ -155,7 +155,9 @@ class CandleStickChartWithEquidistantChannel extends React.Component {
     const keyCode = e.which
     console.log(keyCode)
     switch (keyCode) {
-      case 46: { // DEL
+
+      case 8: // DEL Macbook Pro
+      case 46: { // DEL PC
 
         const channels_1 = this.state.channels_1
           .filter(each => !each.selected)
@@ -246,7 +248,7 @@ class CandleStickChartWithEquidistantChannel extends React.Component {
 				<Chart id={1}
                height={this.state.chartHeight - bottom_padding}
                yExtents={[d => [d.high, d.low], ema26.accessor(), ema12.accessor()]}
-               padding={{ top: 10, bottom: 20 }}>
+               padding={{ top: 10, bottom: 20 }} >
 
           <XAxis axisAt='bottom' orient='bottom' showTicks={false} outerTickSize={0} />
 					<YAxis axisAt='right' orient='right' ticks={5} />
@@ -254,8 +256,8 @@ class CandleStickChartWithEquidistantChannel extends React.Component {
           <MouseCoordinateY at='right' orient='right' displayFormat={format('.2f')} />
 
 					<CandlestickSeries />
-					<LineSeries yAccessor={ema26.accessor()} stroke={ema26.stroke()}/>
-					<LineSeries yAccessor={ema12.accessor()} stroke={ema12.stroke()}/>
+					<LineSeries yAccessor={ema26.accessor()} stroke={ema26.stroke()} />
+					<LineSeries yAccessor={ema12.accessor()} stroke={ema12.stroke()} />
 
 					<CurrentCoordinate yAccessor={ema26.accessor()} fill={ema26.stroke()} />
 					<CurrentCoordinate yAccessor={ema12.accessor()} fill={ema12.stroke()} />
@@ -263,7 +265,7 @@ class CandleStickChartWithEquidistantChannel extends React.Component {
           <EdgeIndicator itemType='last'
                          orient='right'
                          edgeAt='right'
-                         yAccessor={d => d.close} fill={d => d.close > d.open ? '#6BA583' : '#FF0000'}/>
+                         yAccessor={d => d.close} fill={d => d.close > d.open ? '#6BA583' : '#FF0000'} />
 
 
 
@@ -272,7 +274,7 @@ class CandleStickChartWithEquidistantChannel extends React.Component {
                               enabled={this.state.enableInteractiveObject}
                               onStart={() => console.log('START')}
                               onComplete={this.onDrawComplete}
-                              channels={channels_1}/>
+                              channels={channels_1} />
 
 
 
@@ -282,27 +284,26 @@ class CandleStickChartWithEquidistantChannel extends React.Component {
         
 				<DrawingObjectSelector enabled={!this.state.enableInteractiveObject}
                                getInteractiveNodes={this.getInteractiveNodes}
+                               onSelect={this.handleSelection}
                                drawingObjectMap={{
                                  EquidistantChannel: 'channels'
-                               }}
-					onSelect={this.handleSelection}
-				/>
+                               }} />
 			</ChartCanvas>
 		)
 	}
 }
 
-CandleStickChartWithEquidistantChannel.propTypes = {
+CandleStickChart.propTypes = {
 	data: PropTypes.array.isRequired,
 	width: PropTypes.number.isRequired,
 	ratio: PropTypes.number.isRequired,
 	type: PropTypes.oneOf(['svg', 'hybrid']).isRequired,
 }
 
-CandleStickChartWithEquidistantChannel.defaultProps = {
+CandleStickChart.defaultProps = {
 	type: 'svg',
 }
 
-CandleStickChartWithEquidistantChannel = fitWidth(CandleStickChartWithEquidistantChannel)
+CandleStickChart = fitWidth(CandleStickChart)
 
-export default CandleStickChartWithEquidistantChannel
+export default CandleStickChart
