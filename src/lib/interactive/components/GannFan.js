@@ -147,6 +147,7 @@ class GannFan extends Component {
 		)
 	}
 
+
 	render() {
 
 		const { selected, interactiveCursorClass } = this.props
